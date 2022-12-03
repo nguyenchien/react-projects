@@ -10,7 +10,7 @@ const sublinks = [
     ],
   },
   {
-    page: 'developers',
+    page: 'developer',
     links: [
       { label: 'plugins', icon: <FaBook />, url: '/products' },
       { label: 'libraries', icon: <FaBook />, url: '/products' },
