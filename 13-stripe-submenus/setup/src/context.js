@@ -22,7 +22,7 @@ const AppProvider = ({children}) => {
     setIsSubmenuOpen(true);
   }
   const closeSubmenu = () => {
-    setIsSidebarOpen(false);
+    setIsSubmenuOpen(false);
   }
   
   return (
