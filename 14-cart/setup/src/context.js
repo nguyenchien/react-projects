@@ -20,8 +20,16 @@ const AppProvider = ({ children }) => {
     dispatch({type: 'CLEAR_CART'})
   }
   
-  const removeItem = (id) => {
+  const remove = (id) => {
     dispatch({type: 'REMOVE', payload: id})
+  }
+  
+  const increase = (id) => {
+    dispatch({type: 'INCREASE', payload: id})
+  }
+  
+  const decrease = (id) => {
+    dispatch({type: 'DECREASE', payload: id})
   }
 
   return (
@@ -29,7 +37,9 @@ const AppProvider = ({ children }) => {
       value={{
         ...state,
         clearCart,
-        removeItem
+        remove,
+        increase,
+        decrease,
       }}
     >
       {children}
