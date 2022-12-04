@@ -3,36 +3,37 @@ import CartItem from './CartItem'
 import { useGlobalContext } from './context'
 
 const CartContainer = () => {
-  const { cart } = useGlobalContext()
+  const { cart, total } = useGlobalContext();
   if (cart.length === 0) {
     return (
       <section className='cart'>
-        {/* cart header */}
         <header>
           <h2>your bag</h2>
           <h4 className='empty-cart'>is currently empty</h4>
         </header>
+        {/* cart header */}
       </section>
     )
   }
   return (
     <section className='cart'>
-      {/* cart header */}
       <header>
         <h2>your bag</h2>
       </header>
-      {/* cart items */}
+      {/* cart header */}
+      
       <div>
         {cart.map((item) => {
           return <CartItem key={item.id} {...item} />
         })}
       </div>
-      {/* cart footer */}
+      {/* cart items */}
+      
       <footer>
         <hr />
         <div className='cart-total'>
           <h4>
-            total <span>$0.00</span>
+            total <span>${total}</span>
           </h4>
         </div>
         <button
@@ -42,6 +43,7 @@ const CartContainer = () => {
           clear cart
         </button>
       </footer>
+      {/* cart footer */}
     </section>
   )
 }
