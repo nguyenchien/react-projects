@@ -57,6 +57,17 @@ const reducer = (state, action) => {
        total,
        amount, 
       }
+    case 'LOADING':
+      return {
+        ...state,
+        loading: true
+      }
+    case 'DISPLAY_ITEMS':
+      return {
+        ...state,
+        loading: false,
+        cart: action.payload
+      }
     default:
       throw new Error('invalid action...');
   }
