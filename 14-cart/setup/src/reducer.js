@@ -68,10 +68,31 @@ const reducer = (state, action) => {
         loading: false,
         cart: action.payload
       }
+    case 'TOGGLE_AMOUNT':
+      const tempCart03 = state.cart.map((cartItem)=>{
+        if (cartItem.id === action.payload.id) {
+          if (action.payload.type === 'inc') {
+            return {
+              ...cartItem,
+              amount: cartItem.amount + 1
+            }
+          }
+          if (action.payload.type === 'dec') {
+            return {
+              ...cartItem,
+              amount: cartItem.amount - 1
+            }
+          }
+        }
+        return cartItem;
+      }).filter((cartItem)=> cartItem.amount !== 0);
+      return {
+        ...state,
+        cart: tempCart03
+      }
     default:
-      throw new Error('invalid action...');
+      throw new Error('no matching action type...');
   }
-  // return state;
 }
 
 export default reducer
