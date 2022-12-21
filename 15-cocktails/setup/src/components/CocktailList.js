@@ -4,12 +4,12 @@ import Loading from './Loading'
 import { useGlobalContext } from '../context'
 
 const CocktailList = () => {
-  const {loading, coctails} = useGlobalContext();
+  const {loading, cocktails} = useGlobalContext();
   if (loading) {
     return <Loading/>
   }
   
-  if (coctails.length < 1) {
+  if (cocktails.length < 1) {
     return (
       <h2 className='section-title'>no cocktail matched your search criteria</h2>
     )
