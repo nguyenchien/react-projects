@@ -22,7 +22,8 @@ const AppProvider = ({ children }) => {
             id: idDrink,
             name: strDrink,
             image: strDrinkThumb,
-            glass: strGlass
+            glass: strGlass,
+            info: strAlcoholic
           }
         });
         setCocktails(newDrinks);
