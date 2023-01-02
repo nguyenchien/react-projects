@@ -25,9 +25,33 @@ function App() {
   useEffect(()=> {
     fetchImages();
   },[]);
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+  
   return (
     <main>
-      <h1>{loading && loading ? 'loading...' : ''}</h1>
+      <section className="search">
+        <form className="search-form">
+          <input type="text" className='form-input' placeholder='search' />
+          <button type="submit" className='submit-btn' onClick={handleSubmit}>
+            <FaSearch/>
+          </button>
+        </form>
+      </section>
+      <section className="photos">
+        <div className="photos-center">
+          {
+            photos.map((image, index)=>{
+              return (
+                <Photo key={image.id} {...image} />
+              )
+            })
+          }
+        </div>
+      </section>
+      {loading && <h2>loading...</h2>}
     </main>
   )
 }
