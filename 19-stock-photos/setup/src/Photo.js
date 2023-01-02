@@ -20,7 +20,7 @@ const Photo = (
           <h4>{name}</h4>
           <p>{likes} likes</p>
         </div>
-        <a href={portfolio_url} target="_blank">
+        <a href={portfolio_url} target="_blank" rel="noopener noreferrer">
           <img src={medium} alt={name} className="user-img" />
         </a>
       </div>

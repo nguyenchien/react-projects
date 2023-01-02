@@ -22,12 +22,26 @@ function App() {
     }
   }
   
+  // handle fetch image on init
   useEffect(()=> {
     fetchImages();
   },[]);
   
+  // handle scroll loading image
+  useEffect(()=>{
+    const event = window.addEventListener('scroll', ()=>{
+      if (!loading && window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        console.log('loading image');
+      }
+    });
+    return ()=> {
+      window.removeEventListener('scroll', event);
+    }
+  }, []);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('handleSubmit called');
   }
   
   return (
@@ -51,7 +65,7 @@ function App() {
           }
         </div>
       </section>
-      {loading && <h2>loading...</h2>}
+      {loading && <h2 style={{textAlign: 'center'}}>loading...</h2>}
     </main>
   )
 }
