@@ -161,8 +161,20 @@ Stock Photos
   color: var(--clr-grey-5);
   border-bottom: 3px solid var(--clr-grey-5);
 }
+.submit-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 .form-input {
   color: var(--clr-grey-3);
+  outline: none;
+  transition: all 0.3s ease;
+}
+.form-input:focus {
+  border-color: #222;
+}
+.form-input:focus + .submit-btn {
+  border-color: #222;
 }
 .form-input::placeholder {
   color: var(--clr-grey-5);
