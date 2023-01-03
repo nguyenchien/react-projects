@@ -43,6 +43,7 @@ function App() {
   // handle fetch image on init
   useEffect(() => {
     fetchImages()
+    // eslint-disable-next-line
   }, [page]);
   
   // handle scroll loading image
@@ -58,6 +59,7 @@ function App() {
     return ()=> {
       window.removeEventListener('scroll', event);
     }
+    // eslint-disable-next-line
   }, []);
   
   const handleSubmit = (e) => {
