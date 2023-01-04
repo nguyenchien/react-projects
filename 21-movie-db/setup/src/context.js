@@ -6,7 +6,7 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({show: false, msg: ''});
-  const [query, setQuery] = useState('batma');
+  const [query, setQuery] = useState('batman');
   const [movies, setMovies] = useState([]);
 
   const fetchMovies = async(url) => {
