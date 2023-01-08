@@ -10,7 +10,7 @@ const Movies = () => {
   return (
     <div className="movies">
       {
-        movies.map((movie)=>{
+        movies && movies.map((movie)=>{
           const {imdbID: id, Title: title, Poster: poster,Year: year} = movie;
           return (
             <Link key={id} to={`/movies/${id}`} className='movie'>
