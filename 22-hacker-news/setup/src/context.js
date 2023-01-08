@@ -35,12 +35,17 @@ const AppProvider = ({ children }) => {
     }
   }
   
+  const removeStory = (id) => {
+    dispath({type: REMOVE_STORY, payload: {id: id}})
+  }
+  
   useEffect(() => {
    fetchStories(`${API_ENDPOINT}query=${state.query}`); 
   }, []);
   
   return <AppContext.Provider value={{
     ...state,
+    removeStory
   }}>{children}</AppContext.Provider>
 }
 // make sure use
