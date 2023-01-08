@@ -14,7 +14,6 @@ const reducer = (state, action) => {
         isLoading: true
       }
     case SET_STORIES:
-      console.log(action);
       return {
         ...state, 
         isLoading: false,
