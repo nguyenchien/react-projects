@@ -43,14 +43,19 @@ const AppProvider = ({ children }) => {
     dispath({type: HANDLE_SEARCH, payload: {query: value}})
   }
   
+  const handlePage = (value) => {
+    dispath({type: HANDLE_PAGE, payload: value})
+  }
+  
   useEffect(() => {
    fetchStories(`${API_ENDPOINT}query=${state.query}`);
-  }, [state.query]);
+  }, [state.query, state.page]);
   
   return <AppContext.Provider value={{
     ...state,
     removeStory,
-    searchStories
+    searchStories,
+    handlePage
   }}>{children}</AppContext.Provider>
 }
 // make sure use
