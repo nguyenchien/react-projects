@@ -17,7 +17,7 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
   const [waiting, setWaiting] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [question, setQuestion] = useState([]);
+  const [questions, setQuestions] = useState([]);
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [error, setError] = useState(false);
@@ -30,7 +30,7 @@ const AppProvider = ({ children }) => {
       const response = await axios(url).catch(error => console.log(error));
       const data  = response.data.results;
       if (data.length > 0) {
-        setQuestion(data);
+        setQuestions(data);
         setWaiting(false);
         setLoading(false);
         setError(false);
@@ -50,7 +50,7 @@ const AppProvider = ({ children }) => {
   return <AppContext.Provider value={{
     waiting,
     loading,
-    question,
+    questions,
     index,
     correct,
     error,
