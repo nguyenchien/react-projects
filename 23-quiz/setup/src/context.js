@@ -21,9 +21,32 @@ const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [error, setError] = useState(false);
-  
   const [isModelOpen, setIsModelOpen] = useState(false);
   
+  const fetchQuestions = async(url) => {
+    setWaiting(false);
+    setLoading(true);
+    try {
+      const response = await axios(url).catch(error => console.log(error));
+      const data  = response.data.results;
+      if (data.length > 0) {
+        setQuestion(data);
+        setWaiting(false);
+        setLoading(false);
+        setError(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setWaiting(true);
+      setLoading(true);
+      setError(true);
+    }
+  }
+  
+  useEffect(()=>{
+    fetchQuestions(tempUrl);
+  }, []);
+    
   return <AppContext.Provider value={{
     waiting,
     loading,
