@@ -6,7 +6,7 @@ import Loading from './Loading'
 import Modal from './Modal'
 function App() {
   const {
-    waiting, loading, questions, index, correct
+    waiting, loading, questions, index, correct, nextQuestion
   } = useGlobalContext();
   
   if (waiting) {
@@ -41,7 +41,7 @@ function App() {
             }
           </div>
         </article>
-        <button className="next-question">next question</button>
+        <button className="next-question" onClick={nextQuestion}>next question</button>
       </section>
     </main>
   )
