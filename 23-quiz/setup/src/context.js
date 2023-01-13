@@ -54,6 +54,13 @@ const AppProvider = ({ children }) => {
       }
     })
   }
+
+  const checkAnswer = (value)=>{
+    if (value) {
+      setCorrect((oldCorrect) => oldCorrect + 1);
+    }
+    nextQuestion();
+  }
   
   useEffect(()=>{
     fetchQuestions(tempUrl);
@@ -67,7 +74,8 @@ const AppProvider = ({ children }) => {
     correct,
     error,
     isModelOpen,
-    nextQuestion
+    nextQuestion,
+    checkAnswer
   }}>{children}</AppContext.Provider>
 }
 // make sure use

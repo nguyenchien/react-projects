@@ -6,7 +6,13 @@ import Loading from './Loading'
 import Modal from './Modal'
 function App() {
   const {
-    waiting, loading, questions, index, correct, nextQuestion
+    waiting, 
+    loading, 
+    questions, 
+    index, 
+    correct, 
+    nextQuestion,
+    checkAnswer
   } = useGlobalContext();
   
   if (waiting) {
@@ -35,6 +41,7 @@ function App() {
                     key={index} 
                     className="answer-btn" 
                     dangerouslySetInnerHTML={{__html:answer}}
+                    onClick={()=>checkAnswer(correct_answer === answer)}
                   />
                 )
               })
