@@ -39,9 +39,12 @@ const AppProvider = ({ children }) => {
         setWaiting(false);
         setLoading(false);
         setError(false);
+      } else {
+        setWaiting(true);
+        setLoading(true);
+        setError(true);
       }
     } catch (error) {
-      console.log(error);
       setWaiting(true);
       setLoading(true);
       setError(true);
@@ -75,6 +78,11 @@ const AppProvider = ({ children }) => {
     setIsModalOpen(false);
     setLoading(false);
     setWaiting(true);
+    setQuiz({
+      amount: 10,
+      category: 'sports',
+      difficulty: 'easy',
+    })
   }
   
   const handleChange = (e) => {
@@ -87,11 +95,11 @@ const AppProvider = ({ children }) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    const {amount, category, difficulty} = quiz;
+    const url = `${API_ENDPOINT}amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`;
+    console.log(url);
+    fetchQuestions(url);
   }
-  
-  // useEffect(()=>{
-  //   fetchQuestions(tempUrl);
-  // }, []);
     
   return <AppContext.Provider value={{
     waiting,
